@@ -31,7 +31,7 @@ special1(0), special2(0), persistent(p) {
         else {
             ostringstream im;
             im << id;
-            image = IMG_Load(("data/images/ennemi/ennemi" + im.str() + ".png").c_str());
+            image = gpJeu->loadImg(("data/images/ennemi/ennemi" + im.str() + ".png").c_str());
             SDL_SetColorKey(image,SDL_SRCCOLORKEY,SDL_MapRGB(image->format,0,0,255));
             chargeIm = true;
         }

@@ -25,7 +25,7 @@ menu(false), text(false), vueHorz(0), vueVert(0) {
     phg[0] = 0;
     phg[1] = 0;
     
-    imageObjets = IMG_Load("data/images/objet/objets.png");
+    imageObjets = loadImg("data/images/objet/objets.png");
     SDL_SetColorKey(imageObjets,SDL_SRCCOLORKEY,SDL_MapRGB(imageObjets->format,0,0,255));
     
     gpProjectile = NULL; gpObjet = NULL; gpSnipe = NULL; gpCaisse = NULL; gpEnnemi = NULL;
@@ -2629,4 +2629,14 @@ void Jeu::testFin() {
             }
         }
     }
+}
+
+SDL_Surface* Jeu::loadImg(const char* image) {
+	char fImage[512];
+#ifdef __PSP2__
+	snprintf(fImage, sizeof(fImage), "%s/%s", "ux0:data/zroth", image);
+#else
+	snprintf(fImage, sizeof(fImage), "%s", image);
+#endif
+	return IMG_Load(fImage);
 }

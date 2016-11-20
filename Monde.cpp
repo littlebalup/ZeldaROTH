@@ -29,13 +29,13 @@ musique(0), gpJeu(jeu), animtransX(0), animtransY(0), animtransC(0), niveau(0), 
     for (int i = 0; i < 2; i++) {
         std::ostringstream im;
         im << (i+1);
-        image[i] = IMG_Load(("data/images/motifs/image" + im.str() + ".png").c_str());
+        image[i] = gpJeu->loadImg(("data/images/motifs/image" + im.str() + ".png").c_str());
         SDL_SetColorKey(image[i],SDL_SRCCOLORKEY,SDL_MapRGB(image[i]->format,0,0,255));
     }
     
     imagetransit = SDL_CreateRGBSurface(SDL_HWSURFACE, 320, 240, 32, 0, 0, 0, 0);
     
-    imagelevel = IMG_Load("data/images/menu/level.png");
+    imagelevel = gpJeu->loadImg("data/images/menu/level.png");
     SDL_SetColorKey(imagelevel,SDL_SRCCOLORKEY,SDL_MapRGB(imagelevel->format,0,0,255));
     
     changeZone(gpJeu->getZone());
@@ -1589,7 +1589,11 @@ void Monde::chargeMap(int zone) {
             
     std::ostringstream oss;
     oss << zone;
+#ifdef __PSP2__
+    std::string result = "ux0:data/zroth/data/map/carte" + oss.str() + ".map";
+#else
     std::string result = "data/map/carte" + oss.str() + ".map";
+#endif
     std::ifstream file(result.c_str());
     
     file >> largeur;

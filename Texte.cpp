@@ -21,9 +21,9 @@
 Texte::Texte(Jeu* jeu) : gpJeu(jeu), vitesse(40), av(0), x(0), y(0), w(0), h(0),
 id(0), idsuiv(0), def(false), cadre(false), texte(""), buffer("") {
     lastAnimTime = SDL_GetTicks();
-    imageFont = IMG_Load("data/images/texte/font.png");
+    imageFont = gpJeu->loadImg("data/images/texte/font.png");
     SDL_SetColorKey(imageFont,SDL_SRCCOLORKEY,SDL_MapRGB(imageFont->format,0,0,255));
-    imageCoeur = IMG_Load("data/images/menu/coeur.png");
+    imageCoeur = gpJeu->loadImg("data/images/menu/coeur.png");
     SDL_SetColorKey(imageCoeur,SDL_SRCCOLORKEY,SDL_MapRGB(imageCoeur->format,0,0,255));
 }
 

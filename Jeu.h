@@ -102,6 +102,7 @@ class Jeu {
         void permuteBloc(int val);
         void setKeyboard(Keyboard* kb);
         void setGenerique(Generique* gen);
+        SDL_Surface* loadImg(const char* image);
     private :
         void testRamasse(int x, int y, int w, int h);
         bool coupeBuisson(int i, int j, int type);

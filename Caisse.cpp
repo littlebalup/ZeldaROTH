@@ -22,7 +22,7 @@
 Caisse::Caisse(Jeu* jeu, int type, int i, int j) : gpJeu(jeu), id(type),
 pousseX(0), pousseY(0), direction(N) {
     x=i; y=j; w=16; h=16; xdep=x; ydep=y;
-    image = IMG_Load("data/images/objet/caisse.png");
+    image = gpJeu->loadImg("data/images/objet/caisse.png");
     sx = ((type-1)%3)*w;
     sy = ((type-1)/3)*h;
 }

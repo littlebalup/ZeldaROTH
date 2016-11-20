@@ -401,39 +401,39 @@ void Projectile::changeType(int type) {
     switch (type) {
         case 1 : //flèche
         case 2 : //flèche argent
-            if (id == 1) image = IMG_Load("data/images/objet/projectiles.png"); 
-            else image = IMG_Load("data/images/objet/projectilesarg.png"); 
+            if (id == 1) image = gpJeu->loadImg("data/images/objet/projectiles.png"); 
+            else image = gpJeu->loadImg("data/images/objet/projectilesarg.png"); 
             w=16; h=16;
             if (direction == N || direction == S) {zx=4; zy=0; zw=7; zh=16;} 
             else {zx=0; zy=4; zw=16; zh=7;}
             break;
         case 3 : //grappin
-            image = IMG_Load("data/images/objet/grappin.png");
+            image = gpJeu->loadImg("data/images/objet/grappin.png");
             w=12; h=12;
             if (direction == N || direction == S) {zx=0; zy=0; zw=12; zh=8;} 
             else {zx=0; zy=0; zw=8; zh=12;}
             chmax=208;
             break;
         case 4 : //bombe
-            image = IMG_Load("data/images/objet/bombe.png");
+            image = gpJeu->loadImg("data/images/objet/bombe.png");
             w=16; h=16;
             zx=0; zy=0; zw=16; zh=16;
             max=30;
             break;
         case 5 : //baguette de feu
         case 6 : //baguette de glace
-            image = IMG_Load("data/images/objet/magie.png");
+            image = gpJeu->loadImg("data/images/objet/magie.png");
             w=17; h=17;
             zx=0; zy=0; zw=17; zh=17;
             break;
         case 7 : //flamme
-            image = IMG_Load("data/images/objet/feu.png");
+            image = gpJeu->loadImg("data/images/objet/feu.png");
             w=16; h=16;
             zx=0; zy=0; zw=16; zh=16;
             max=5;
             break;
         case 8 : //plouf
-            image = IMG_Load("data/images/objet/plouf.png");
+            image = gpJeu->loadImg("data/images/objet/plouf.png");
             w=16; h=16;
             zx=0; zy=0; zw=16; zh=16;
             vanim=40;
@@ -444,20 +444,20 @@ void Projectile::changeType(int type) {
         case 10 :
         case 11 :
         case 12 :
-            image = IMG_Load("data/images/objet/buisson.png");
+            image = gpJeu->loadImg("data/images/objet/buisson.png");
             w=27; h=43;
             zx=0; zy=0; zw=27; zh=43;
             max=6;
             gpJeu->getAudio()->playSound(38);
             break;
         case 15 : //explosion fumée blanche
-            image = IMG_Load("data/images/ennemi/explo.png");
+            image = gpJeu->loadImg("data/images/ennemi/explo.png");
             w=28; h=28;
             zx=0; zy=0; zw=w; zh=h;
             max=6; vanim=60;
             break;
         case 16 : //explosion fumée rose
-            image = IMG_Load("data/images/link/exploLapin.png");
+            image = gpJeu->loadImg("data/images/link/exploLapin.png");
             w=28; h=28;
             zx=0; zy=0; zw=w; zh=h;
             max=3; vanim=60;
@@ -468,7 +468,7 @@ void Projectile::changeType(int type) {
         case 24 :
         case 25 :
         case 26 :
-            image = IMG_Load("data/images/link/objets.png");
+            image = gpJeu->loadImg("data/images/link/objets.png");
             w=16; h=16;
             zx=0; zy=0; zw=16; zh=16;
             chmax=64;

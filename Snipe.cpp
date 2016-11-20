@@ -30,39 +30,39 @@ rebond(false), element(FEU) {
     switch (id) {
         case 1 : // boule de feu petite
             w=7; h=7; force=2; renvoyable=true;
-            image = IMG_Load("data/images/objet/projectiles2.png");
+            image = gpJeu->loadImg("data/images/objet/projectiles2.png");
             break;
         case 2 : // boule de feu petite droite
             if (angly!=0) {h=16;w=7;}
             if (anglx!=0) {h=7;w=16;}
             force=4; max=1;
-            image = IMG_Load("data/images/objet/projectiles3.png");
+            image = gpJeu->loadImg("data/images/objet/projectiles3.png");
             break;
         case 3 : // arc magique
             if (angly!=0) {h=8;w=16;}
             if (anglx!=0) {h=16;w=8;}
             force=4; max=1; renvoyable=true; element=ENNEMI;
-            image = IMG_Load("data/images/objet/projectiles4.png");
+            image = gpJeu->loadImg("data/images/objet/projectiles4.png");
             break;
         case 4 : // boulet
             w=8; h=13; force=2; element=PROJECTILE;
-            image = IMG_Load("data/images/objet/projectiles5.png");
+            image = gpJeu->loadImg("data/images/objet/projectiles5.png");
             break;
         case 5 : // boule magique
             w=16; h=16; force=2; renvoyable=true; element=ENNEMI; max=1;
-            image = IMG_Load("data/images/objet/projectiles6.png");
+            image = gpJeu->loadImg("data/images/objet/projectiles6.png");
             break;
         case 6 : // eclair
             w=83; h=148; force=6; element=ENNEMI; max=4; anglx=0; angly=0;
-            image = IMG_Load("data/images/objet/projectiles8.png");
+            image = gpJeu->loadImg("data/images/objet/projectiles8.png");
             break;
         case 7 : // lapin
             w=22; h=22; force=0; element=LAPIN; max=1;
-            image = IMG_Load("data/images/objet/projectiles7.png");
+            image = gpJeu->loadImg("data/images/objet/projectiles7.png");
             break;
         case 8 : // boule de feu violette
             w=7; h=7; force=0; renvoyable=true; element=DEMI;
-            image = IMG_Load("data/images/objet/projectiles9.png");
+            image = gpJeu->loadImg("data/images/objet/projectiles9.png");
             break;
     }
 

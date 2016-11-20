@@ -26,11 +26,11 @@ rubismax(999), lapin(false), onilink(false), oni(false), onijauge(0), onimax(5),
 mort(0), porte(0), boostVie(0), boostMagie(0), boostRubis(0), pousse(0), trouve(0), 
 avancement(0), invisible(false), dirglisse(0), dirglace(0), glace(0), glisse(0), vitesse(0),
 oldxg(0), oldyg(0), immo(false), loader(false) {
-    image = IMG_Load("data/images/link/link1.png");
+    image = gpJeu->loadImg("data/images/link/link1.png");
     SDL_SetColorKey(image,SDL_SRCCOLORKEY,SDL_MapRGB(image->format,0,0,255));
-    imageSpin = IMG_Load("data/images/link/spin.png");
+    imageSpin = gpJeu->loadImg("data/images/link/spin.png");
     SDL_SetColorKey(imageSpin,SDL_SRCCOLORKEY,SDL_MapRGB(imageSpin->format,0,0,255));
-    imageObjets = IMG_Load("data/images/link/objets.png");
+    imageObjets = gpJeu->loadImg("data/images/link/objets.png");
     SDL_SetColorKey(imageObjets,SDL_SRCCOLORKEY,SDL_MapRGB(imageObjets->format,0,0,255));
     x=86;y=24;w=16;h=24;viemax=6;vie=viemax;magie=magiemax;
     for (int i = 0; i < 44; i++) coeur[i]=0;
@@ -116,7 +116,11 @@ void Joueur::save() {
     if (tps > 359999) tps = 359999;
     ostringstream im;
     im << numSave;
+#ifdef __PSP2__
+    ofstream f(("ux0:data/zroth/save/roth" + im.str() + ".dat").c_str(),ios::out | ios::binary);
+#else
     ofstream f(("data/save/roth" + im.str() + ".dat").c_str(),ios::out | ios::binary);
+#endif
     f.write((char *)&tps,sizeof(int));
     f.write((char *)&zone,sizeof(int));
     f.write((char *)&xd,sizeof(int));
@@ -159,7 +163,11 @@ void Joueur::load() {
     int zone;
     ostringstream im;
     im << numSave;
+#ifdef __PSP2__
+    ifstream f(("ux0:data/zroth/save/roth" + im.str() + ".dat").c_str(),ios::in | ios::binary);
+#else
     ifstream f(("data/save/roth" + im.str() + ".dat").c_str(),ios::in | ios::binary);
+#endif
     if(!f.is_open()) return;
     f.read((char *)&temps,sizeof(int));
     f.read((char *)&zone,sizeof(int)); gpJeu->setZone(zone);
@@ -530,7 +538,7 @@ void Joueur::setBouclier(int b) {
     std::ostringstream im;
     im << bouclier;
     if (bouclier) 
-        boucl = new Bouclier(IMG_Load(("data/images/link/bouclier" + im.str() + ".png").c_str()), bouclier);
+        boucl = new Bouclier(gpJeu->loadImg(("data/images/link/bouclier" + im.str() + ".png").c_str()), bouclier);
     calculDef();
 }
 
@@ -539,7 +547,7 @@ void Joueur::setEpee(int e) {
     SDL_FreeSurface(imageEpee);
     std::ostringstream im;
     im << epee;
-    imageEpee = IMG_Load(("data/images/link/epee" + im.str() + ".png").c_str());
+    imageEpee = gpJeu->loadImg(("data/images/link/epee" + im.str() + ".png").c_str());
     SDL_SetColorKey(imageEpee,SDL_SRCCOLORKEY,SDL_MapRGB(imageEpee->format,0,0,255));
 }
 

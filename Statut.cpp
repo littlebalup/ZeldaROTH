@@ -20,9 +20,9 @@
 
 Statut::Statut(Jeu* jeu) : gpJeu(jeu), jauge(false), valjauge(0), maxjauge(10), nivjauge(50) {
     
-    imageStatut = IMG_Load("data/images/statut/statut.png");
-    imageChiffre = IMG_Load("data/images/statut/chiffres.png");
-    imageInventaire = IMG_Load("data/images/statut/inventaire.png");
+    imageStatut = gpJeu->loadImg("data/images/statut/statut.png");
+    imageChiffre = gpJeu->loadImg("data/images/statut/chiffres.png");
+    imageInventaire = gpJeu->loadImg("data/images/statut/inventaire.png");
     
     SDL_SetColorKey(imageStatut,SDL_SRCCOLORKEY,SDL_MapRGB(imageStatut->format,0,0,255));
     SDL_SetColorKey(imageChiffre,SDL_SRCCOLORKEY,SDL_MapRGB(imageChiffre->format,0,0,255));
