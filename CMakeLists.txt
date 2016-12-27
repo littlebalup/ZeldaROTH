@@ -50,10 +50,6 @@ add_executable(${VITA_APPNAME}
   ZoneRect.cpp
 )
 
-add_custom_command(
-  TARGET ${VITA_APPNAME} POST_BUILD COMMAND ${CMAKE_STRIP} -g ${VITA_APPNAME}
-)
-
 target_link_libraries(${VITA_APPNAME}
   SDL_gfx
   SDL_mixer
@@ -77,7 +73,7 @@ target_link_libraries(${VITA_APPNAME}
 )
 
 # Create Vita artifacts
-vita_create_self(${VITA_APPNAME}.self ${VITA_APPNAME} UNCOMPRESSED SAFE)
+vita_create_self(${VITA_APPNAME}.self ${VITA_APPNAME} SAFE)
 vita_create_vpk(${VITA_APPNAME}.vpk ${VITA_TITLEID} ${VITA_APPNAME}.self
   VERSION ${VITA_VERSION}
   NAME ${VITA_APPNAME}
