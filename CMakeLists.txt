@@ -70,6 +70,7 @@ target_link_libraries(${VITA_APPNAME}
   SceNetCtl_stub
   ScePower_stub
   SceSysmodule_stub
+  SceTouch_stub
 )
 
 # Create Vita artifacts
