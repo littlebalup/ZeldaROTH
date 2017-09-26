@@ -491,7 +491,7 @@ void Generique::initAide2() {
     gpJeu->affiche(image, "AIDE 2/2", 40, 16);
     
 #ifdef __PSP2__
-    gpJeu->affiche(image, "Retour au jeu : X - Suite : <", 24, 208);
+    gpJeu->affiche(image, "Retour au jeu : X - Suite : >", 24, 208);
 #else
     gpJeu->affiche(image, "Retour au jeu: Entrée - Suite : Droite", 24, 208);
 #endif
