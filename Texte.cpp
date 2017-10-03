@@ -105,11 +105,11 @@ void Texte::chercheText() {
         case 64 : texte = "O : Roc de la Tortue*E : Lac Hylia"; break;
         case 65 : texte = "Temple Caché**Ici repose la lame purificatrice, Excalibur."; break;
         case 66 : texte = "N : Vers le cimetière hanté"; break;
-        case 67 : texte = "Tu as trouvé la carte du donjon !!!*Appuie sur R pour voir le plan."; break;
+        case 67 : texte = "Tu as trouvé la carte du donjon !!!*Appuie sur D-Pad gauche pour voir le plan."; break;
         case 68 : texte = "Tu as trouvé la boussole !!!*Tu peux localiser le boss et les coffres sur le plan."; break;
         case 69 : texte = "Tu as trouvé la clé du boss !!!"; break;
         case 70 : texte = "Tu as trouvé une petite clé !!!*Approche une porte pour l'ouvrir."; break;
-        case 71 : texte = "Tu as trouvé les gants !!!*Utilise-les pour soulever des objets en les équipant ou en appuyant sur X."; break;
+        case 71 : texte = "Tu as trouvé les gants !!!*Utilise-les pour soulever des objets en les équipant."; break;
         case 72 : 
             texte = "Tu as trouvé un cristal magique !!!"; 
             tmp = 7-gpJeu->getJoueur()->nbCristaux();
@@ -282,7 +282,7 @@ void Texte::chercheText() {
         case 192 : texte = "L'ennui c'est que je suis bien trop peureux pour aller à leur rencontre, alors j'ai besoin de ton aide."; idsuiv=193; break;
         case 193 : texte = "Il faut que tu battes chaque type de monstre et que tu viennes me faire ton rapport."; idsuiv=194; break;
         case 194 : texte = "Je te récompenserai tous les 7 nouveaux types d'ennemis vaincus."; idsuiv=195; break;
-        case 195 : texte = "Si tu veux savoir quels ennemis tu as déjà vaincu, appuie sur M."; break;
+        case 195 : texte = "Si tu veux savoir quels ennemis tu as déjà vaincu, appuie sur D-Pad haut."; break;
         
         
         case 196 : 

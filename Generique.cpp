@@ -391,10 +391,10 @@ void Generique::initAide1() {
     gpJeu->affiche(image, "Lire / Ouvrir / Parler : Espace", 24, ligne); ligne+=16;
     gpJeu->affiche(image, "Valider / Passer texte : Entrer", 24, ligne); ligne+=16;
 #endif
-    gpJeu->affiche(image, "Déplacer Link : Pavé multidirectionnel", 24, ligne); ligne+=16;
+    gpJeu->affiche(image, "Déplacer Link : Stick analogique gauche", 24, ligne); ligne+=16;
     if (gpJoueur->hasObjet(O_BOTTES)) {
 #ifdef __PSP2__
-        gpJeu->affiche(image, "Courir : L", 24, ligne);
+        gpJeu->affiche(image, "Courir : L maintenu ou R pour vérouiller", 24, ligne);
 #else
         gpJeu->affiche(image, "Courir : Shift ou Caps lock", 24, ligne); 
 #endif
@@ -409,7 +409,7 @@ void Generique::initAide1() {
 #endif
         ligne+=16;}
 #ifdef __PSP2__
-    gpJeu->affiche(image, "Menu de sélection d'objet : Croix", 24, ligne); ligne+=16;
+    gpJeu->affiche(image, "Menu de sélection d'objet : D-Pad droit", 24, ligne); ligne+=16;
 #else
     gpJeu->affiche(image, "Menu de sélection d'objet : Entrer", 24, ligne); ligne+=16;
 #endif
@@ -420,34 +420,42 @@ void Generique::initAide1() {
     gpJeu->affiche(image, "Utiliser l'objet sélectionné : X", 24, ligne); ligne+=16;
 #endif
     if (ligne >= 176) return;
-#ifndef __PSP2__
     if (gpJoueur->hasObjet(O_GANTS)) {
-        gpJeu->affiche(image, "Porter sans équiper les gants : C", 24, ligne); 
+#ifdef __PSP2__
+        gpJeu->affiche(image, "Porter sans équiper les gants : Croix", 24, ligne); 
+#else
+        gpJeu->affiche(image, "Porter sans équiper les gants : C", 24, ligne);
+#endif
         ligne+=16;}
     if (ligne >= 176) return;
-#endif
     if (gpJoueur->hasObjet(O_CARTE))
 #ifdef __PSP2__
-        gpJeu->affiche(image, "Afficher la carte : R (extérieur ou donjons)", 24, ligne);
-    else gpJeu->affiche(image, "Afficher la carte : R (dans les donjons)", 24, ligne);
+        gpJeu->affiche(image, "Afficher la carte : D-Pad gauche", 24, ligne);
+    else gpJeu->affiche(image, "Afficher la carte : D-Pad gauche", 24, ligne);
 #else
         gpJeu->affiche(image, "Afficher la carte : P (extérieur ou donjons)", 24, ligne);
     else gpJeu->affiche(image, "Afficher la carte : P (dans les donjons)", 24, ligne);
 #endif
     ligne+=16;
     if (ligne >= 176) return;
-#ifndef __PSP2__
     if (gpJoueur->hasObjet(O_ENCYCL)) {
-        gpJeu->affiche(image, "Afficher les monstres vaincus : M", 24, ligne); 
+#ifdef __PSP2__
+        gpJeu->affiche(image, "Afficher les monstres vaincus : D-Pad haut", 24, ligne);
+#else
+        gpJeu->affiche(image, "Afficher les monstres vaincus : M", 24, ligne);
+#endif
         ligne+=16;}
     if (ligne >= 176) return;
+#ifdef __PSP2__
+    gpJeu->affiche(image, "Regarder autour : Stick analogique droit", 24, ligne); ligne+=16;
+    if (ligne >= 176) return;
+    gpJeu->affiche(image, "Sauvegarder / Quitter : Start", 24, ligne); ligne+=16;
+#else
     gpJeu->affiche(image, "Regarder autour : Ctrl et direction", 24, ligne); ligne+=16;
     if (ligne >= 176) return;
     gpJeu->affiche(image, "Agrandir / Rétrécir Ctrl et Entrer", 24, ligne); ligne+=16;
     if (ligne >= 176) return;
-    gpJeu->affiche(image, "Save / Quit: Esc", 24, ligne); ligne+=16;
-#else
-    gpJeu->affiche(image, "Sauvegarder / Quitter : Start", 24, ligne); ligne+=16;
+    gpJeu->affiche(image, "Sauvegarder / Quitter : Esc", 24, ligne); ligne+=16;
 #endif
 }
 
@@ -509,34 +517,42 @@ void Generique::initAide2() {
     gpJeu->affiche(image, "Utiliser l'objet sélectionné : X", 24, ligne); ligne+=16;
 #endif
     if (ligne >= 64) 
-#ifndef __PSP2__
     if (gpJoueur->hasObjet(O_GANTS)) {
-        gpJeu->affiche(image, "Porter sans équiper les gants : C", 24, ligne); 
-        ligne+=16;}
+#ifdef __PSP2__
+        gpJeu->affiche(image, "Porter sans équiper les gants : Croix", 24, ligne); 
+#else
+        gpJeu->affiche(image, "Porter sans équiper les gants : C", 24, ligne);
 #endif
+        ligne+=16;}
     if (ligne >= 64) {
     if (gpJoueur->hasObjet(O_CARTE))
 #ifdef __PSP2__
-        gpJeu->affiche(image, "Afficher la carte : R (extérieur ou donjons)", 24, ligne);
-    else gpJeu->affiche(image, "Afficher la carte : R (dans les donjons)", 24, ligne);}
+        gpJeu->affiche(image, "Afficher la carte : D-Pad gauche", 24, ligne);
+    else gpJeu->affiche(image, "Afficher la carte : D-Pad gauche", 24, ligne);}
 #else
         gpJeu->affiche(image, "Afficher la carte : P (extérieur ou donjons)", 24, ligne);
     else gpJeu->affiche(image, "Afficher la carte : P (dans les donjons)", 24, ligne);}
 #endif
     ligne+=16;
     if (ligne >= 64) 
-#ifndef __PSP2__
     if (gpJoueur->hasObjet(O_ENCYCL)) {
-        gpJeu->affiche(image, "Afficher les monstres vaincus : M", 24, ligne); 
-        ligne+=16;}
-    if (ligne >= 64) return;
-    gpJeu->affiche(image, "Regarder autour : Ctrl et direction", 24, ligne); ligne+=16;
-    if (ligne >= 64) return;
-    gpJeu->affiche(image, "Agrandir / Rétrécir Ctrl et Entrer", 24, ligne); ligne+=16;
-    if (ligne >= 64) return;
-    gpJeu->affiche(image, "Save / Quit: Esc", 24, ligne); ligne+=16;
+#ifdef __PSP2__
+        gpJeu->affiche(image, "Afficher les monstres vaincus : D-Pad haut", 24, ligne);
 #else
+        gpJeu->affiche(image, "Afficher les monstres vaincus : M", 24, ligne);
+#endif
+        ligne+=16;}
+    if (ligne >= 64)
+#ifdef __PSP2__
+    gpJeu->affiche(image, "Regarder autour : Stick analogique droit", 24, ligne); ligne+=16;
+    if (ligne >= 64)
     gpJeu->affiche(image, "Sauvegarder / Quitter : Start", 24, ligne); ligne+=16;
+#else
+    gpJeu->affiche(image, "Regarder autour : Ctrl et direction", 24, ligne); ligne+=16;
+    if (ligne >= 64)
+    gpJeu->affiche(image, "Agrandir / Rétrécir Ctrl et Entrer", 24, ligne); ligne+=16;
+    if (ligne >= 64)
+    gpJeu->affiche(image, "Sauvegarder / Quitter : Esc", 24, ligne); ligne+=16;
 #endif
 }
 

@@ -42,6 +42,7 @@ class Keyboard {
         void pollKeys(Uint8* keys);
         void toggleFullScreen();
         int buttonPressed(int i);
+        int stickPosition(int stick, int direction);
         
         Jeu* gpJeu;
         Carte* gpCarte;
@@ -68,6 +69,7 @@ class Keyboard {
         int rang[3];
         int ligneVal;
         int intro;
+		int verrRun;
         SDL_Event event;
         Uint8* keys;
         
