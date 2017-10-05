@@ -50,8 +50,8 @@ SDL_Surface* init() {             // initialise SDL
 
 int main(int argc, char** argv) {
 #ifdef __PSP2__
-	sceKernelPowerTick(SCE_KERNEL_POWER_TICK_DISABLE_AUTO_SUSPEND);
-	scePowerSetArmClockFrequency(444);
+    sceKernelPowerTick(SCE_KERNEL_POWER_TICK_DISABLE_AUTO_SUSPEND);
+    scePowerSetArmClockFrequency(444);
 #endif
 
     if (argc && argv); //pour éviter un warning.....
@@ -69,12 +69,12 @@ int main(int argc, char** argv) {
     gpScreen = init();
 #ifdef __PSP2__
     int sh = 544;
-    int sw = (float)src.w*((float)sh/(float)src.h);
+    int sw = (float)gpScreen->w*((float)sh/(float)gpScreen->h);
     int x = (960 - sw)/2;
     SDL_SetVideoModeScaling(x, 0, sw, sh);
 
     SDL_Surface* gpScreen2 = SDL_SetVideoMode(320, 240, 16, SDL_HWSURFACE|SDL_DOUBLEBUF);
-    sw = (float)320*((float)sh/(float)240);
+    sw = (float)gpScreen2->w*((float)sh/(float)gpScreen2->h);
     x = (960 - sw)/2;
     SDL_SetVideoModeScaling(x, 0, sw, sh);
 #else

@@ -23,7 +23,9 @@
 Audio::Audio() : musiqueId(0), specialId(0) {
     SOUND = true;
     music = NULL;
+#ifdef __PSP2__
     mem = NULL;
+#endif
     
     if(SDL_InitSubSystem(SDL_INIT_AUDIO) == -1) SOUND = false;
     
@@ -127,10 +129,13 @@ Mix_Music* Audio::getMusic(const char* zik) {
     struct stat info;
     snprintf(fZik, sizeof(fZik), "%s/%s.ogg", "ux0:data/zroth/data/music", zik);
     stat(fZik, &info);
-    FILE* f = fopen(fZik, "rb");
+    if (f != NULL) {
+        fclose(f);
+    }
     if (mem != NULL) {
         free(mem);
     }
+    f = fopen(fZik, "rb");
     mem = (char*)malloc(info.st_size);
     fread(mem, 1, info.st_size, f);
     return Mix_LoadMUS_RW(SDL_RWFromMem(mem, info.st_size));

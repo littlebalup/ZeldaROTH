@@ -37,7 +37,10 @@ class Audio {
         int previous_volume;
         int musiqueId;
         int specialId;
+#ifdef __PSP2__
         char* mem;
+        FILE* f;
+#endif
         Mix_Chunk** sons;
         Mix_Music* music;
 

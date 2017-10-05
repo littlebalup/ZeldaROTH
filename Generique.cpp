@@ -160,6 +160,7 @@ void Generique::initSelection() {
             
             gpJeu->getKeyboard()->setSave(i,1);
         }else gpJeu->getKeyboard()->setSave(i,0);
+		delete gpJoueur;
     }
     
     SDL_FreeSurface(objets);
